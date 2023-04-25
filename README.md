@@ -1,4 +1,5 @@
-TODO: Add more to the title of your project here
+Svenja Hansson
+Functional epigenomics
 
 # LearningR:
 
