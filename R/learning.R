@@ -1,7 +1,9 @@
 
-# Data Management and Wrangling -----------------------------------------------------------
+# Chapter 7 Data Management and Wrangling -----------------------------------------------------------
+###############################################################################
 
-# Load packages
+
+# Load packages -----------------------------------------------------------
 library(tidyverse)
 library(NHANES)
 
@@ -27,7 +29,9 @@ nhanes_small <- select(
   BPDiaAve, Education
 )
 
-# Renaming columns
+
+# Renaming columns --------------------------------------------------------
+
 nhanes_small <- rename_with(
   nhanes_small,
   snakecase::to_snake_case
@@ -36,7 +40,8 @@ nhanes_small <- rename_with(
 # Renaming specific columns
 nhanes_small <- rename(nhanes_small, sex = gender)
 
-# Trying out the pipe
+
+# Trying out the pipe -----------------------------------------------------
 
 colnames(nhanes_small)
 
@@ -47,7 +52,8 @@ nhanes_small %>%
   select(phys_active) %>%
   rename(physically_active = phys_active)
 
-# Exercise 7.8
+
+# Exercise 7.8 ------------------------------------------------------------
 
 # 1
 nhanes_small %>%
@@ -74,21 +80,26 @@ blood_pressure <- nhanes_small %>%
   select(starts_with("bp_")) %>%
   rename(bp_systolic = bp_sys_ave)
 
-# Filtering
+
+# Filtering ---------------------------------------------------------------
+
 nhanes_small %>%
   filter(phys_active != "No")
 
 nhanes_small %>%
   filter(bmi >= 25)
 
-# combining logical operators
+
+# combining logical operators ---------------------------------------------
+
 nhanes_small %>%
   filter(bmi >= 25 & phys_active == "No")
 
 nhanes_small %>%
   filter(bmi >= 25 | phys_active == "No")
 
-# Arrange data
+
+# Arrange data ------------------------------------------------------------
 
 nhanes_small %>%
   arrange(age)
@@ -100,7 +111,10 @@ nhanes_small %>%
   arrange(education, age)
 
 
-# Transform data
+
+# Transform data ----------------------------------------------------------
+
+
 
 nhanes_small %>%
   mutate(
@@ -174,6 +188,10 @@ nhanes_small %>%
 # Saving data -------------------------------------------------------------
 readr::write_csv(nhanes_small,
                  here::here("data/nhance_small.csv"))
+
+
+###########################################################################
+# Analytically reproducible documents (Chapter 8) -------------------------
 
 
 
