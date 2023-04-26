@@ -1,4 +1,4 @@
-Svenja blahblah
+Svenja Hansson
 Functional epigenomics
 
 Added this random sentence locally
