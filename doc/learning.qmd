@@ -12,9 +12,6 @@ library(NHANES)
 nhanes_small <- read_csv(here::here("data/nhance_small.csv"))
 ```
 
-```{r}
-nhanes_small
-```
 
 ## Table of results
 
@@ -58,3 +55,8 @@ nhanes_small %>%
   ) %>%
   knitr::kable(caption = "New Mean values of Age and BMI for each education and diabetes status.")
 ```
+
+Cute sloth eating a flower @fig-cute-sloth!
+
+![Cute sloth](images/picture.jpeg){#fig-cute-sloth width="50%" height="50%"}
+
